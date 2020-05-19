@@ -1,0 +1,111 @@
+digraph {
+	rankdir=LR;
+	node [shape=plaintext];
+	subgraph cluster__ccid_bulk_in {
+		label="CcidBulkIn";
+		graph[style=dotted];
+
+		ccid_bulk_in__seq [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+			<TR><TD BGCOLOR="#E0FFE0">pos</TD><TD BGCOLOR="#E0FFE0">size</TD><TD BGCOLOR="#E0FFE0">type</TD><TD BGCOLOR="#E0FFE0">id</TD></TR>
+			<TR><TD PORT="stx_pos">0</TD><TD PORT="stx_size">1</TD><TD>02</TD><TD PORT="stx_type">stx</TD></TR>
+			<TR><TD PORT="bulk_in_header_pos">1</TD><TD PORT="bulk_in_header_size">...</TD><TD>switch (bulk_in)</TD><TD PORT="bulk_in_header_type">bulk_in_header</TD></TR>
+			<TR><TD PORT="apdu_response_or_addata_pos">...</TD><TD PORT="apdu_response_or_addata_size">...</TD><TD>ApduRd</TD><TD PORT="apdu_response_or_addata_type">apdu_response_or_addata</TD></TR>
+			<TR><TD PORT="checksum_pos">...</TD><TD PORT="checksum_size">1</TD><TD></TD><TD PORT="checksum_type">checksum</TD></TR>
+			<TR><TD PORT="etx_pos">...</TD><TD PORT="etx_size">1</TD><TD>03</TD><TD PORT="etx_type">etx</TD></TR>
+		</TABLE>>];
+		ccid_bulk_in__inst__bulk_in [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+			<TR><TD BGCOLOR="#E0FFE0">pos</TD><TD BGCOLOR="#E0FFE0">size</TD><TD BGCOLOR="#E0FFE0">type</TD><TD BGCOLOR="#E0FFE0">id</TD></TR>
+			<TR><TD PORT="bulk_in_pos">1</TD><TD PORT="bulk_in_size">10</TD><TD>b80</TD><TD PORT="bulk_in_type">bulk_in</TD></TR>
+		</TABLE>>];
+ccid_bulk_in__seq_bulk_in_header_switch [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+	<TR><TD BGCOLOR="#F0F2E4">case</TD><TD BGCOLOR="#F0F2E4">type</TD></TR>
+	<TR><TD>1</TD><TD PORT="case0">RdrToPcDataBlock</TD></TR>
+	<TR><TD>2</TD><TD PORT="case1">RdrToPcEscape</TD></TR>
+	<TR><TD>3</TD><TD PORT="case2">RdrToPcSlotStatus</TD></TR>
+</TABLE>>];
+		subgraph cluster__rdr_to_pc_data_block {
+			label="CcidBulkIn::RdrToPcDataBlock";
+			graph[style=dotted];
+
+			rdr_to_pc_data_block__seq [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+				<TR><TD BGCOLOR="#E0FFE0">pos</TD><TD BGCOLOR="#E0FFE0">size</TD><TD BGCOLOR="#E0FFE0">type</TD><TD BGCOLOR="#E0FFE0">id</TD></TR>
+				<TR><TD PORT="message_type_pos">0</TD><TD PORT="message_type_size">1</TD><TD>80</TD><TD PORT="message_type_type">message_type</TD></TR>
+				<TR><TD PORT="length_pos">1</TD><TD PORT="length_size">4</TD><TD>u4le</TD><TD PORT="length_type">length</TD></TR>
+				<TR><TD PORT="slot_pos">5</TD><TD PORT="slot_size">1</TD><TD>u1→SlotEnum</TD><TD PORT="slot_type">slot</TD></TR>
+				<TR><TD PORT="seq_pos">6</TD><TD PORT="seq_size">1</TD><TD>u1</TD><TD PORT="seq_type">seq</TD></TR>
+				<TR><TD PORT="status_pos">7</TD><TD PORT="status_size">1</TD><TD>u1</TD><TD PORT="status_type">status</TD></TR>
+				<TR><TD PORT="error_pos">8</TD><TD PORT="error_size">1</TD><TD>u1</TD><TD PORT="error_type">error</TD></TR>
+				<TR><TD PORT="chain_parameter_pos">9</TD><TD PORT="chain_parameter_size">1</TD><TD>00</TD><TD PORT="chain_parameter_type">chain_parameter</TD></TR>
+				<TR><TD PORT="data_pos">10</TD><TD PORT="data_size">length</TD><TD>DataBlock</TD><TD PORT="data_type">data</TD></TR>
+			</TABLE>>];
+			subgraph cluster__data_block {
+				label="CcidBulkIn::RdrToPcDataBlock::DataBlock";
+				graph[style=dotted];
+
+				data_block__seq [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+					<TR><TD BGCOLOR="#E0FFE0">pos</TD><TD BGCOLOR="#E0FFE0">size</TD><TD BGCOLOR="#E0FFE0">type</TD><TD BGCOLOR="#E0FFE0">id</TD></TR>
+					<TR><TD PORT="data_pos">0</TD><TD PORT="data_size">⇲</TD><TD></TD><TD PORT="data_type">data</TD></TR>
+				</TABLE>>];
+			}
+		}
+		subgraph cluster__rdr_to_pc_escape {
+			label="CcidBulkIn::RdrToPcEscape";
+			graph[style=dotted];
+
+			rdr_to_pc_escape__seq [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+				<TR><TD BGCOLOR="#E0FFE0">pos</TD><TD BGCOLOR="#E0FFE0">size</TD><TD BGCOLOR="#E0FFE0">type</TD><TD BGCOLOR="#E0FFE0">id</TD></TR>
+				<TR><TD PORT="message_type_pos">0</TD><TD PORT="message_type_size">1</TD><TD>83</TD><TD PORT="message_type_type">message_type</TD></TR>
+				<TR><TD PORT="length_pos">1</TD><TD PORT="length_size">4</TD><TD>u4le</TD><TD PORT="length_type">length</TD></TR>
+				<TR><TD PORT="slot_pos">5</TD><TD PORT="slot_size">1</TD><TD>u1→SlotEnum</TD><TD PORT="slot_type">slot</TD></TR>
+				<TR><TD PORT="seq_pos">6</TD><TD PORT="seq_size">1</TD><TD>u1</TD><TD PORT="seq_type">seq</TD></TR>
+				<TR><TD PORT="status_pos">7</TD><TD PORT="status_size">1</TD><TD>u1</TD><TD PORT="status_type">status</TD></TR>
+				<TR><TD PORT="error_pos">8</TD><TD PORT="error_size">1</TD><TD>u1</TD><TD PORT="error_type">error</TD></TR>
+				<TR><TD PORT="rfu_pos">9</TD><TD PORT="rfu_size">1</TD><TD>00</TD><TD PORT="rfu_type">rfu</TD></TR>
+				<TR><TD PORT="data_pos">10</TD><TD PORT="data_size">length</TD><TD>EscapeBlock</TD><TD PORT="data_type">data</TD></TR>
+			</TABLE>>];
+			subgraph cluster__escape_block {
+				label="CcidBulkIn::RdrToPcEscape::EscapeBlock";
+				graph[style=dotted];
+
+				escape_block__seq [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+					<TR><TD BGCOLOR="#E0FFE0">pos</TD><TD BGCOLOR="#E0FFE0">size</TD><TD BGCOLOR="#E0FFE0">type</TD><TD BGCOLOR="#E0FFE0">id</TD></TR>
+					<TR><TD PORT="data_pos">0</TD><TD PORT="data_size">⇲</TD><TD></TD><TD PORT="data_type">data</TD></TR>
+				</TABLE>>];
+			}
+		}
+		subgraph cluster__rdr_to_pc_slot_status {
+			label="CcidBulkIn::RdrToPcSlotStatus";
+			graph[style=dotted];
+
+			rdr_to_pc_slot_status__seq [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+				<TR><TD BGCOLOR="#E0FFE0">pos</TD><TD BGCOLOR="#E0FFE0">size</TD><TD BGCOLOR="#E0FFE0">type</TD><TD BGCOLOR="#E0FFE0">id</TD></TR>
+				<TR><TD PORT="message_type_pos">0</TD><TD PORT="message_type_size">1</TD><TD>83</TD><TD PORT="message_type_type">message_type</TD></TR>
+				<TR><TD PORT="length_pos">1</TD><TD PORT="length_size">4</TD><TD>u4le</TD><TD PORT="length_type">length</TD></TR>
+				<TR><TD PORT="slot_pos">5</TD><TD PORT="slot_size">1</TD><TD>u1→SlotEnum</TD><TD PORT="slot_type">slot</TD></TR>
+				<TR><TD PORT="seq_pos">6</TD><TD PORT="seq_size">1</TD><TD>u1</TD><TD PORT="seq_type">seq</TD></TR>
+				<TR><TD PORT="status_pos">7</TD><TD PORT="status_size">1</TD><TD>u1</TD><TD PORT="status_type">status</TD></TR>
+				<TR><TD PORT="error_pos">8</TD><TD PORT="error_size">1</TD><TD>u1</TD><TD PORT="error_type">error</TD></TR>
+				<TR><TD PORT="clock_status_pos">9</TD><TD PORT="clock_status_size">1</TD><TD>u1→ClockStatusEnum</TD><TD PORT="clock_status_type">clock_status</TD></TR>
+			</TABLE>>];
+		}
+		subgraph cluster__apdu_rd {
+			label="CcidBulkIn::ApduRd";
+			graph[style=dotted];
+
+			apdu_rd__seq [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+				<TR><TD BGCOLOR="#E0FFE0">pos</TD><TD BGCOLOR="#E0FFE0">size</TD><TD BGCOLOR="#E0FFE0">type</TD><TD BGCOLOR="#E0FFE0">id</TD></TR>
+				<TR><TD PORT="apdu_rd_pos">0</TD><TD PORT="apdu_rd_size">⇲</TD><TD></TD><TD PORT="apdu_rd_type">apdu_rd</TD></TR>
+			</TABLE>>];
+		}
+	}
+	ccid_bulk_in__seq:bulk_in_header_type -> ccid_bulk_in__seq_bulk_in_header_switch [style=bold];
+	ccid_bulk_in__seq_bulk_in_header_switch:case0 -> rdr_to_pc_data_block__seq [style=bold];
+	ccid_bulk_in__seq_bulk_in_header_switch:case1 -> rdr_to_pc_escape__seq [style=bold];
+	ccid_bulk_in__seq_bulk_in_header_switch:case2 -> rdr_to_pc_slot_status__seq [style=bold];
+	ccid_bulk_in__inst__bulk_in:bulk_in_type -> ccid_bulk_in__seq:bulk_in_header_type [color="#404040"];
+	ccid_bulk_in__seq:apdu_response_or_addata_type -> apdu_rd__seq [style=bold];
+	rdr_to_pc_data_block__seq:length_type -> rdr_to_pc_data_block__seq:data_size [color="#404040"];
+	rdr_to_pc_data_block__seq:data_type -> data_block__seq [style=bold];
+	rdr_to_pc_escape__seq:length_type -> rdr_to_pc_escape__seq:data_size [color="#404040"];
+	rdr_to_pc_escape__seq:data_type -> escape_block__seq [style=bold];
+}

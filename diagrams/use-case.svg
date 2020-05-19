@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="558px" preserveAspectRatio="none" style="width:1139px;height:558px;" version="1.1" viewBox="0 0 1139 558" width="1139px" zoomAndPan="magnify">
+    <defs>
+        <filter height="300%" id="f1srjf2k94n6f9" width="300%" x="-1" y="-1">
+            <feGaussianBlur result="blurOut" stdDeviation="2.0" />
+            <feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0" />
+            <feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3" />
+            <feBlend in="SourceGraphic" in2="blurOut3" mode="normal" />
+        </filter>
+    </defs>
+    <g>
+        <!--MD5=[99b31deea5d7419a569cd5090bf83263]
+cluster System-->
+        <rect fill="#FFFFFF" filter="url(#f1srjf2k94n6f9)" height="419" style="stroke: #000000; stroke-width: 1.5;" width="1114" x="14" y="128" /><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="58" x="542" y="142.9951">System</text>
+        <ellipse cx="968.169" cy="172.5236" fill="#FEFECE" filter="url(#f1srjf2k94n6f9)" rx="49.669" ry="14.5236" style="stroke: #A80036; stroke-width: 1.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="66" x="935.169" y="177.1721">load Keys</text>
+        <ellipse cx="230.2002" cy="172.34" fill="#FEFECE" filter="url(#f1srjf2k94n6f9)" rx="74.7002" ry="17.34" style="stroke: #A80036; stroke-width: 1.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="118" x="171.2002" y="176.9885">get Card Number</text>
+        <ellipse cx="105.2005" cy="347.9401" fill="#FEFECE" filter="url(#f1srjf2k94n6f9)" rx="82.7005" ry="18.9401" style="stroke: #A80036; stroke-width: 1.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="137" x="36.7005" y="352.5885">check Card Number</text>
+        <ellipse cx="575.8489" cy="172.2698" fill="#FEFECE" filter="url(#f1srjf2k94n6f9)" rx="71.8489" ry="16.7698" style="stroke: #A80036; stroke-width: 1.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="111" x="520.3489" y="176.9182">write Static Data</text>
+        <ellipse cx="1043.9395" cy="348.0879" fill="#FEFECE" filter="url(#f1srjf2k94n6f9)" rx="75.9395" ry="17.5879" style="stroke: #A80036; stroke-width: 1.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="121" x="983.4395" y="352.7363">write Coordinates</text>
+        <ellipse cx="877.9486" cy="522.2897" fill="#FEFECE" filter="url(#f1srjf2k94n6f9)" rx="64.4486" ry="15.2897" style="stroke: #A80036; stroke-width: 1.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="92" x="831.9486" y="526.9382">write Latitude</text>
+        <ellipse cx="1047.85" cy="522.37" fill="#FEFECE" filter="url(#f1srjf2k94n6f9)" rx="69.85" ry="16.37" style="stroke: #A80036; stroke-width: 1.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="106" x="994.85" y="527.0184">write Longitude</text>
+        <ellipse cx="299.7711" cy="347.7542" fill="#FEFECE" filter="url(#f1srjf2k94n6f9)" rx="76.7711" ry="17.7542" style="stroke: #A80036; stroke-width: 1.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="123" x="238.2711" y="352.4027">write Loader GUID</text>
+        <ellipse cx="482.2471" cy="347.9494" fill="#FEFECE" filter="url(#f1srjf2k94n6f9)" rx="70.2471" ry="16.4494" style="stroke: #A80036; stroke-width: 1.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="107" x="428.7471" y="352.5979">write Start Time</text>
+        <ellipse cx="669.7712" cy="347.8542" fill="#FEFECE" filter="url(#f1srjf2k94n6f9)" rx="82.2712" ry="18.8542" style="stroke: #A80036; stroke-width: 1.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="136" x="601.7712" y="352.5027">write Loader Shares</text>
+        <ellipse cx="860.1576" cy="347.9315" fill="#FEFECE" filter="url(#f1srjf2k94n6f9)" rx="72.6576" ry="16.9315" style="stroke: #A80036; stroke-width: 1.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="113" x="803.6576" y="352.5799">write State Flags</text>
+        <ellipse cx="751.7758" cy="172.5552" fill="#FEFECE" filter="url(#f1srjf2k94n6f9)" rx="68.2758" ry="16.0552" style="stroke: #A80036; stroke-width: 1.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="102" x="700.7758" y="177.2036">write End Time</text>
+        <!--MD5=[23118665cfd8bd5f56509b8abd427f2a]
+entity Usr-->
+        <ellipse cx="968" cy="17.5" fill="#FEFECE" filter="url(#f1srjf2k94n6f9)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 1.5;" />
+        <path d="M968,25.5 L968,52.5 M955,33.5 L981,33.5 M968,52.5 L955,67.5 M968,52.5 L981,67.5 " fill="none" filter="url(#f1srjf2k94n6f9)" style="stroke: #A80036; stroke-width: 1.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="39" x="948.5" y="85.9951">Client</text>
+        <!--MD5=[93e4bb16b09956a8dc174593146e1b67]
+entity Rdr-->
+        <ellipse cx="576" cy="17.5" fill="#FEFECE" filter="url(#f1srjf2k94n6f9)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 1.5;" />
+        <path d="M576,25.5 L576,52.5 M563,33.5 L589,33.5 M576,52.5 L563,67.5 M576,52.5 L589,67.5 " fill="none" filter="url(#f1srjf2k94n6f9)" style="stroke: #A80036; stroke-width: 1.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="50" x="551" y="85.9951">Reader</text>
+        <!--MD5=[d112f37c78246182b1b741409a836f63]
+link Usr to lK-->
+        <path d="M968,89.1022 C968,110.4817 968,135.7303 968,152.8011 " fill="none" id="Usr-&gt;lK" style="stroke: #A80036; stroke-width: 1.0;" />
+        <polygon fill="#A80036" points="968,157.8231,972,148.8231,968,152.8231,964,148.8231,968,157.8231" style="stroke: #A80036; stroke-width: 1.0;" />
+        <!--MD5=[194a39ebe2a13671814262e8be538c88]
+reverse link gSN to chSN-->
+        <path d="M214.3689,194.446 C189.6306,229.1787 141.8742,296.2286 118.522,329.0151 " fill="none" id="gSN&lt;-chSN" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;" />
+        <polygon fill="#A80036" points="217.5575,189.9692,209.0782,194.9793,214.6568,194.0418,215.5943,199.6204,217.5575,189.9692" style="stroke: #A80036; stroke-width: 1.0;" /><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="61" x="175" y="264.0669">«include»</text>
+        <!--MD5=[001d33c2a502b21040e8da6452d10233]
+reverse link Rdr to gSN-->
+        <path d="M545.7871,59.3277 C483.6069,81.612 341.2689,132.6233 270.911,157.8383 " fill="none" id="Rdr&lt;-gSN" style="stroke: #A80036; stroke-width: 1.0;" />
+        <polygon fill="#A80036" points="550.8378,57.5177,541.016,56.7888,546.131,59.2047,543.7151,64.3197,550.8378,57.5177" style="stroke: #A80036; stroke-width: 1.0;" />
+        <!--MD5=[7103083bd02318cff50439c848cf8228]
+link wC to wLat-->
+        <path d="M1027.4764,365.3697 C996.27,398.174 928.8821,469.0125 896.3325,503.2287 " fill="none" id="wC-&gt;wLat" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;" />
+        <polygon fill="#A80036" points="892.5406,507.2149,901.642,503.4513,895.9869,503.5923,895.8459,497.9372,892.5406,507.2149" style="stroke: #A80036; stroke-width: 1.0;" /><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="61" x="967" y="441.0669">«include»</text>
+        <!--MD5=[7ac89536ca1323316b49de84943b1968]
+link wC to wLon-->
+        <path d="M1044.4056,365.6923 C1045.1408,397.7684 1046.692,465.4365 1047.4948,500.4591 " fill="none" id="wC-&gt;wLon" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;" />
+        <polygon fill="#A80036" points="1047.6169,505.7892,1051.4094,496.6998,1047.5022,500.7905,1043.4115,496.8833,1047.6169,505.7892" style="stroke: #A80036; stroke-width: 1.0;" /><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="61" x="1047" y="441.0669">«include»</text>
+        <!--MD5=[55ddc47d5007e2f9578b51493f9ac226]
+link wSD to wC-->
+        <path d="M617.4692,186.4597 C662.5716,201.7756 736.6975,227.3368 800,251 C871.2117,277.6198 953.193,310.7226 1001.6903,330.5643 " fill="none" id="wSD-&gt;wC" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;" />
+        <polygon fill="#A80036" points="1006.5667,332.5609,999.7535,325.4489,1001.9395,330.6663,996.7222,332.8524,1006.5667,332.5609" style="stroke: #A80036; stroke-width: 1.0;" /><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="61" x="845" y="264.0669">«include»</text>
+        <!--MD5=[2f15553f44d5262cd93515f838d08f2a]
+link wSD to wL-->
+        <path d="M550.5293,188.696 C499.7773,220.9677 386.1951,293.1912 331.1238,328.2093 " fill="none" id="wSD-&gt;wL" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;" />
+        <polygon fill="#A80036" points="326.6207,331.0727,336.3616,329.6186,330.8399,328.3897,332.0688,322.8679,326.6207,331.0727" style="stroke: #A80036; stroke-width: 1.0;" /><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="61" x="452" y="264.0669">«include»</text>
+        <!--MD5=[7d7558148c4f9ef74021cc412fa8c2d2]
+link wSD to wSt-->
+        <path d="M566.8157,189.6472 C549.4847,222.0047 512.0149,291.9616 493.2236,327.0454 " fill="none" id="wSD-&gt;wSt" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;" />
+        <polygon fill="#A80036" points="490.809,331.5535,498.5845,325.5086,493.1698,327.146,491.5325,321.7313,490.809,331.5535" style="stroke: #A80036; stroke-width: 1.0;" /><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="61" x="534" y="264.0669">«include»</text>
+        <!--MD5=[d655b5402b3087bd18a8c607744ea1b1]
+link wSD to wLS-->
+        <path d="M585.1843,189.6472 C602.0732,221.1793 638.0865,288.4169 657.3025,324.2935 " fill="none" id="wSD-&gt;wLS" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;" />
+        <polygon fill="#A80036" points="659.786,328.9302,659.0628,319.1079,657.4253,324.5226,652.0106,322.8851,659.786,328.9302" style="stroke: #A80036; stroke-width: 1.0;" /><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="61" x="627" y="264.0669">«include»</text>
+        <!--MD5=[d7b63f1929ab02d7b4eb18ec5dd95ac8]
+link wSD to wSF-->
+        <path d="M601.704,188.384 C654.1631,220.8015 773.335,294.4447 829.5597,329.1892 " fill="none" id="wSD-&gt;wSF" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;" />
+        <polygon fill="#A80036" points="834.1495,332.0255,828.5961,323.8916,829.8961,329.3971,824.3906,330.6971,834.1495,332.0255" style="stroke: #A80036; stroke-width: 1.0;" /><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="61" x="730" y="264.0669">«include»</text>
+        <!--MD5=[6b0ac71969ce18e0883fc71421437763]
+reverse link Rdr to wEd-->
+        <path d="M605.4031,69.2158 C640.6979,94.0826 699.0439,135.1901 730.4286,157.302 " fill="none" id="Rdr&lt;-wEd" style="stroke: #A80036; stroke-width: 1.0;" />
+        <polygon fill="#A80036" points="601.2165,66.2662,606.2699,74.7198,605.3039,69.146,610.8776,68.18,601.2165,66.2662" style="stroke: #A80036; stroke-width: 1.0;" />
+        <!--MD5=[87e9e97cf6d52bcde2451c3c3ac61570]
+reverse link Rdr to wSD-->
+        <path d="M576,94.1682 C576,115.4778 576,139.5589 576,155.3275 " fill="none" id="Rdr&lt;-wSD" style="stroke: #A80036; stroke-width: 1.0;" />
+        <polygon fill="#A80036" points="576,89.1022,572,98.1022,576,94.1022,580,98.1022,576,89.1022" style="stroke: #A80036; stroke-width: 1.0;" />
+        <!--MD5=[c9d4a0460e57d5beab9034dc206bcbd5]
+@startuml
+
+
+
+
+actor "Client" as Usr
+actor "Reader" as Rdr
+
+rectangle "System"{
+
+usecase "load Keys" as lK
+usecase "get Card Number" as gSN
+usecase "check Card Number" as chSN
+usecase "write Static Data" as wSD
+usecase "write Coordinates" as wC
+usecase "write Latitude" as wLat
+usecase "write Longitude" as wLon
+usecase "write Loader GUID" as wL
+usecase "write Start Time" as wSt
+usecase "write Loader Shares" as wLS
+usecase "write State Flags" as wSF
+usecase "write End Time" as wEd
+
+Usr - -> lK
+
+gSN <.. chSN : <<include>>
+Rdr <- gSN
+
+wC ..> wLat : <<include>>
+wC ..> wLon : <<include>>
+
+wSD ..> wC : <<include>>
+wSD ..> wL : <<include>>
+wSD ..> wSt : <<include>>
+wSD ..> wLS : <<include>>
+wSD ..> wSF : <<include>>
+
+Rdr <- - wEd
+Rdr <- - wSD
+
+}
+
+@enduml
+
+PlantUML version 1.2020.05(Fri Mar 20 02:17:32 YEKT 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.6+10-post-Debian-1deb10u1
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+-->
+    </g>
+</svg>

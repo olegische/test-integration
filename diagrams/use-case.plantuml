@@ -1,0 +1,57 @@
+@startuml
+
+!$Usr = "Client"
+!$Rdr = "Reader"
+
+!$lK = "load Keys"
+
+!$gSN = "get Card Number"
+!$chSN = "check Card Number"
+!$wSD = "write Static Data"
+!$wL = "write Loader GUID"
+!$wC = "write Coordinates"
+!$wLat = "write Latitude"
+!$wLon = "write Longitude"
+!$wSt = "write Start Time"
+!$wLS = "write Loader Shares"
+!$wSF = "write State Flags"
+!$wEd = "write End Time"
+
+actor "$Usr" as Usr
+actor "$Rdr" as Rdr
+
+rectangle "System"{
+
+usecase "$lK" as lK
+usecase "$gSN" as gSN
+usecase "$chSN" as chSN
+usecase "$wSD" as wSD
+usecase "$wC" as wC
+usecase "$wLat" as wLat
+usecase "$wLon" as wLon
+usecase "$wL" as wL
+usecase "$wSt" as wSt
+usecase "$wLS" as wLS
+usecase "$wSF" as wSF
+usecase "$wEd" as wEd
+
+Usr --> lK
+
+gSN <.. chSN : <<include>>
+Rdr <- gSN
+
+wC ..> wLat : <<include>>
+wC ..> wLon : <<include>>
+
+wSD ..> wC : <<include>>
+wSD ..> wL : <<include>>
+wSD ..> wSt : <<include>>
+wSD ..> wLS : <<include>>
+wSD ..> wSF : <<include>>
+
+Rdr <-- wEd
+Rdr <-- wSD
+
+}
+
+@enduml

@@ -1,0 +1,16 @@
+digraph {
+	rankdir=LR;
+	node [shape=plaintext];
+	subgraph cluster__ccid_status {
+		label="CcidStatus";
+		graph[style=dotted];
+
+		ccid_status__seq [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+			<TR><TD BGCOLOR="#E0FFE0">pos</TD><TD BGCOLOR="#E0FFE0">size</TD><TD BGCOLOR="#E0FFE0">type</TD><TD BGCOLOR="#E0FFE0">id</TD></TR>
+			<TR><TD PORT="stx_pos">0</TD><TD PORT="stx_size">1</TD><TD>02</TD><TD PORT="stx_type">stx</TD></TR>
+			<TR><TD PORT="status_pos">1</TD><TD PORT="status_size">1</TD><TD>u1→StatusEnum</TD><TD PORT="status_type">status</TD></TR>
+			<TR><TD PORT="checksum_pos">2</TD><TD PORT="checksum_size">1</TD><TD></TD><TD PORT="checksum_type">checksum</TD></TR>
+			<TR><TD PORT="etx_pos">3</TD><TD PORT="etx_size">1</TD><TD>03</TD><TD PORT="etx_type">etx</TD></TR>
+		</TABLE>>];
+	}
+}

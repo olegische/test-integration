@@ -1,0 +1,135 @@
+@startuml
+!$Trm = "Terminal"
+!$Rdr = "Reader"
+
+!$ch = "check"
+!$uid = "serial_number"
+
+!$isICC = "0"
+!$noICC = "2"
+
+!$ldrGUID = "fieldLoaderGUID1 offset"
+!$lat = "fieldLocationLatitude offset"
+!$lon = "fieldLocationLongitude offset"
+!$stTime = "startLoadDate offset"
+!$edTime = "stopLoadDate offset"
+!$ldrSh = "loaderShares1 offset"
+!$stFl = "stateFlags offset"
+
+'reader functions'
+
+!$ack = "ACK"
+!$gtSlSt = "PC_to_RDR_GetSlotStatus(Slot=0)"
+!$slSt = "RDR_to_PC_SlotStatus(Slot=0)"
+!$xfrBlk = "PC_to_RDR_XfrBlock"
+!$dtBlk = "RDR_to_PC_DataBlock"
+
+'results'
+!$stAtr = "ICCStatus"
+
+'commands'
+!$rd = "FAST_READ"
+!$wr = "WRITE"
+
+!function picc($status)
+  hst -> rdr : $gtSlSt
+  rdr -> hst : $ack
+  rdr -> hst : $slSt : $stAtr = $status
+!endfunction
+
+!function sn()
+  hst -> rdr : $xfrBlk(Data=$rd(StartAddr=0x00,EndAddr=0x02))
+  rdr -> hst : $ack
+  rdr -> hst : $dtBlk(Data=$ack(Data=binary 12 bytes))
+  note over hst: $uid in first 9 bytes
+  hst -> hst : $ch($uid)
+  hst --> hst : $ch($uid) : $uid in list
+  activate hst
+!endfunction
+
+!function write_static()
+
+  note over hst
+    write Loader GUID
+  end note
+  hst -> rdr : $xfrBlk(Data=$wr(Addr=$ldrGUID, Data=IMEI int 4 bytes))
+  rdr -> hst : $ack
+  rdr -> hst : $dtBlk($ack)
+
+  note over hst
+    write Coordinates
+  end note
+  hst -> rdr : $xfrBlk(Data=$wr(Addr=$lat, Data=Latitude int 4 bytes))
+  rdr -> hst : $ack
+  rdr -> hst : $dtBlk(Data=$ack)
+  hst -> rdr : $xfrBlk(Data=$wr(Addr=$lon, Data=Longitude int 4 bytes))
+  rdr -> hst : $ack
+  rdr -> hst : $dtBlk(Data=$ack)
+
+  note over hst
+    write Loading Start Time
+  end note
+  hst -> rdr : $xfrBlk(Data=$wr(Addr=$stTime, Data=TIMESTAMP 4 bytes))
+  rdr -> hst : $ack
+  rdr -> hst : $dtBlk(Data=$ack)
+
+  note over hst
+    write loaderShares1
+  end note
+  hst -> rdr : $xfrBlk(Data=$wr(Addr=$ldrSh, Data=1))
+  rdr -> hst : $ack
+  rdr -> hst : $dtBlk(Data=$ack)
+
+  note over hst
+    write stateFlags
+  end note
+  hst -> rdr : $xfrBlk(Data=$wr(Addr=$stFl, Data=1))
+  rdr -> hst : $ack
+  rdr -> hst : $dtBlk(Data=$ack)
+
+!endfunction
+
+!function write_ed_time()
+  loop $stAtr != $noICC
+    hst -> rdr : $xfrBlk(Data=$wr(Addr=$edTime, Data=TIMESTAMP 4 bytes))
+    rdr -> hst : $ack
+    rdr -> hst : $dtBlk(Data=$ack)
+    hst -> rdr : $gtSlSt
+    rdr -> hst : $ack
+    rdr -> hst : $slSt : $stAtr
+  end
+!endfunction
+
+participant "$Trm" as hst
+participant "$Rdr" as rdr
+
+rnote over hst, rdr
+  check PICC in Slot
+end rnote
+
+picc($isICC)
+
+rnote over hst, rdr
+  check $uid
+end rnote
+
+sn()
+
+rnote over hst, rdr
+  write Static Data
+end rnote
+
+write_static()
+
+rnote over hst, rdr
+  write End Time
+end rnote
+
+write_ed_time()
+
+'command()
+'status()
+'response()
+
+
+@enduml

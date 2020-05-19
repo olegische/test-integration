@@ -1,0 +1,47 @@
+digraph {
+	rankdir=LR;
+	node [shape=plaintext];
+	subgraph cluster__apdu_write {
+		label="ApduWrite";
+		graph[style=dotted];
+
+		apdu_write__seq [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+			<TR><TD BGCOLOR="#E0FFE0">pos</TD><TD BGCOLOR="#E0FFE0">size</TD><TD BGCOLOR="#E0FFE0">type</TD><TD BGCOLOR="#E0FFE0">id</TD></TR>
+		</TABLE>>];
+		apdu_write__inst__request [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+			<TR><TD BGCOLOR="#E0FFE0">pos</TD><TD BGCOLOR="#E0FFE0">size</TD><TD BGCOLOR="#E0FFE0">type</TD><TD BGCOLOR="#E0FFE0">id</TD></TR>
+			<TR><TD PORT="request_pos">...</TD><TD PORT="request_size">8</TD><TD>Request</TD><TD PORT="request_type">request</TD></TR>
+		</TABLE>>];
+		apdu_write__inst__respond [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+			<TR><TD BGCOLOR="#E0FFE0">pos</TD><TD BGCOLOR="#E0FFE0">size</TD><TD BGCOLOR="#E0FFE0">type</TD><TD BGCOLOR="#E0FFE0">id</TD></TR>
+			<TR><TD PORT="respond_pos">...</TD><TD PORT="respond_size">1</TD><TD>Respond</TD><TD PORT="respond_type">respond</TD></TR>
+		</TABLE>>];
+		subgraph cluster__request {
+			label="ApduWrite::Request";
+			graph[style=dotted];
+
+			request__seq [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+				<TR><TD BGCOLOR="#E0FFE0">pos</TD><TD BGCOLOR="#E0FFE0">size</TD><TD BGCOLOR="#E0FFE0">type</TD><TD BGCOLOR="#E0FFE0">id</TD></TR>
+				<TR><TD PORT="cmd_pos">0</TD><TD PORT="cmd_size">1</TD><TD>A2</TD><TD PORT="cmd_type">cmd</TD></TR>
+				<TR><TD PORT="addr_pos">1</TD><TD PORT="addr_size">1</TD><TD>u1</TD><TD PORT="addr_type">addr</TD></TR>
+				<TR><TD PORT="data_pos">2</TD><TD PORT="data_size">4</TD><TD></TD><TD PORT="data_type">data</TD></TR>
+				<TR><TD PORT="crc_pos">6</TD><TD PORT="crc_size">2</TD><TD></TD><TD PORT="crc_type">crc</TD></TR>
+			</TABLE>>];
+		}
+		subgraph cluster__respond {
+			label="ApduWrite::Respond";
+			graph[style=dotted];
+
+			respond__seq [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+				<TR><TD BGCOLOR="#E0FFE0">pos</TD><TD BGCOLOR="#E0FFE0">size</TD><TD BGCOLOR="#E0FFE0">type</TD><TD BGCOLOR="#E0FFE0">id</TD></TR>
+				<TR><TD PORT="ack_pos">0</TD><TD PORT="ack_size">1</TD><TD>0A</TD><TD PORT="ack_type">ack</TD></TR>
+			</TABLE>>];
+			respond__inst__nak [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+				<TR><TD BGCOLOR="#E0FFE0">pos</TD><TD BGCOLOR="#E0FFE0">size</TD><TD BGCOLOR="#E0FFE0">type</TD><TD BGCOLOR="#E0FFE0">id</TD></TR>
+				<TR><TD PORT="nak_pos">...</TD><TD PORT="nak_size">4b</TD><TD>b4→NakEnum</TD><TD PORT="nak_type">nak</TD></TR>
+			</TABLE>>];
+		}
+	}
+	apdu_write__inst__request:request_type -> request__seq [style=bold];
+	apdu_write__inst__respond:respond_type -> respond__seq [style=bold];
+}
